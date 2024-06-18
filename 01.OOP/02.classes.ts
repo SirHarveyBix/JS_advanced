@@ -22,7 +22,6 @@ class Triangle {
     console.log('  private field c is', this.c)
     this.c = c
     console.log('  private field c is now', this.c)
-
   }
 }
 
