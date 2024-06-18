@@ -1,6 +1,6 @@
+import { logger } from "."
 
-
-console.log("\n[BONUS]: Exercice: BankAccount\n")
+logger(__filename, "   [BONUS]: Exercise: BankAccount")
 
 class BankAccount {
   public balance: number

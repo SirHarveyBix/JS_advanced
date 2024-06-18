@@ -1,5 +1,6 @@
+import { logger } from "."
 
-console.log("\nGood old Classes :\n")
+logger(__filename, "Good old Classes :")
 
 class Triangle {
   public a: number = 0

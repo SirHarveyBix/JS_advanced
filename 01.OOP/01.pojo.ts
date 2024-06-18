@@ -1,4 +1,6 @@
-console.info("\nPOJO - Plain Old Javascript Object \n")
+import { logger } from "."
+
+logger(__filename, "POJO - Plain Old Javascript Object")
 
 const key = "species"
 const pet: any = {

@@ -1,5 +1,6 @@
+import { logger } from "."
 
-console.log("\nGood old Classes  with constructors :\n")
+logger(__filename, "Good old Classes with constructors :")
 
 class TriangleC {
   private a: number = 0
