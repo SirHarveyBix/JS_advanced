@@ -1,4 +1,4 @@
-console.info("POJO - Plain Old Javascript Object \n")
+console.info("\nPOJO - Plain Old Javascript Object \n")
 
 const key = "species"
 const pet: any = {
