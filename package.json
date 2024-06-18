@@ -1,0 +1,25 @@
+{
+  "name": "js_advanced",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start": "ts-node -r esm server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "esm": "^3.2.25",
+    "glob": "^10.4.1",
+    "inquirer": "^9.2.23",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.14.2",
+    "nodemon": "^3.1.3",
+    "ts-node": "^10.9.2"
+  }
+}
