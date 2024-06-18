@@ -12,8 +12,21 @@ let nodemonProcess: ChildProcess | null = null
 let isPromptRunning = false
 let selectedFolder: string | null = null
 
-const EXCLUDE_DIRS = ['.git', 'node_modules'];
+const EXCLUDE_DIRS = ['.git', 'node_modules']
 
+// handle signal SIGINT (Ctrl + C) just in case
+process.on('SIGINT', () => {
+  rl.close()
+  if (nodemonProcess != null) {
+    nodemonProcess.kill()
+    nodemonProcess.once('exit', () => {
+      process.exit(0)
+    })
+  } else {
+    console.log('Exiting...')
+    process.exit(0)
+  }
+})
 
 const folderList = (): string[] => {
   const entries = fs.readdirSync(process.cwd(), { withFileTypes: true })
@@ -152,13 +165,5 @@ const waitCommand = (): Promise<string> => {
   })
 }
 
-// handle signal SIGINT (Ctrl + C) just in case
-process.on('SIGINT', () => {
-  rl.close();
-  if (nodemonProcess) {
-    nodemonProcess.kill();
-  }
-  process.exit(0);
-});
-
 promptUser()
+
