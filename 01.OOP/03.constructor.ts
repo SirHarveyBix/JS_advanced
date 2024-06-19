@@ -2,7 +2,7 @@ import { logger } from "."
 
 logger(__filename, "Good old Classes with constructors :")
 
-class TriangleC {
+export class TriangleC {
   private a: number = 0
   private b: number = 0
 
