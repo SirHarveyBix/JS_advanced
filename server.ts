@@ -14,7 +14,7 @@ let selectedFolder: string | null = null
 
 const EXCLUDE_DIRS = ['.git', 'node_modules']
 
-// handle signal SIGINT (Ctrl + C) just in case
+// Handle signal SIGINT (Ctrl + C) just in case
 process.on('SIGINT', () => {
   rl.close()
   if (nodemonProcess != null) {
@@ -32,10 +32,10 @@ const folderList = (): string[] => {
   const entries = fs.readdirSync(process.cwd(), { withFileTypes: true })
 
   return entries
-    .filter(
-      dirEntry => dirEntry.isDirectory() && !EXCLUDE_DIRS.includes(dirEntry.name) // filter out : .git & node_modules
+    .filter((dirEntry) =>
+      dirEntry.isDirectory() && !EXCLUDE_DIRS.includes(dirEntry.name) // filter out : .git & node_modules
     )
-    .map(dirEntry => dirEntry.name)
+    .map((dirEntry) => dirEntry.name)
 }
 
 const promptUser = async () => {
@@ -50,7 +50,7 @@ const promptUser = async () => {
 
     const printFolders = () => {
       console.clear()
-      console.log("Choose a folder to execute:")
+      console.log('Choose a folder to execute:')
 
       folders.forEach((folder, index) => {
         if (index === selectedIndex) {
@@ -67,9 +67,9 @@ const promptUser = async () => {
       const key = await waitKeyPress()
 
       if (key === '\u001B[A') { // key: Arrow Up
-        selectedIndex = (selectedIndex === 0) ? folders.length - 1 : selectedIndex - 1
+        selectedIndex = selectedIndex === 0 ? folders.length - 1 : selectedIndex - 1
       } else if (key === '\u001B[B') { // key: Arrow Down
-        selectedIndex = (selectedIndex === folders.length - 1) ? 0 : selectedIndex + 1
+        selectedIndex = selectedIndex === folders.length - 1 ? 0 : selectedIndex + 1
       } else if (key === '\r') { // key: Enter
         break
       }
@@ -89,13 +89,11 @@ const promptUser = async () => {
 }
 
 const startNodemonProcess = () => {
-  if (!selectedFolder) {
-    console.error('No folder selected. Exiting...')
-    rl.close()
-    return
+  if (selectedFolder == null) {
+    throw Error('No folder selected. Exiting...')
   }
 
-  const command = `nodemon --exec ts-node --watch ./${selectedFolder} -- ./${selectedFolder}/*.ts`
+  const command = `nodemon --watch ${selectedFolder} --ext ts --exec "ts-node ${selectedFolder}/index.ts"`
 
   if (nodemonProcess != null) {
     nodemonProcess.kill()
@@ -129,24 +127,24 @@ const restartPrompt = () => {
   if (nodemonProcess) {
     nodemonProcess.kill()
     nodemonProcess.once('close', () => {
-      console.log("Restarting ...")
+      console.log('Restarting ...')
       promptUser()
     })
   } else {
-    console.log("Restarting ...")
+    console.log('Restarting ...')
     promptUser()
   }
 }
 
 const waitKeyPress = (): Promise<string> => {
-  return new Promise(resolve => {
-    process.stdin.once('data', key => {
+  return new Promise((resolve) => {
+    process.stdin.once('data', (key) => {
       resolve(key.toString())
     })
   })
 }
 
-// handle restart 
+// Handle restart
 const waitForUserCommand = async () => {
   while (true) {
     const key = await waitCommand()
@@ -158,8 +156,8 @@ const waitForUserCommand = async () => {
 }
 
 const waitCommand = (): Promise<string> => {
-  return new Promise(resolve => {
-    rl.question('', answer => {
+  return new Promise((resolve) => {
+    rl.question('', (answer) => {
       resolve(answer)
     })
   })
