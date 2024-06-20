@@ -1,5 +1,8 @@
+import { TEXT } from "../utils/colors"
+
 export const logger = (filename: string, string: string) => {
-  return console.log(`\n \x1b[1m\x1b[34m➜ ${filename.split('02.OOP_New-features/')[1]}\x1b[0m\n\x1b[32m${string}\x1b[0m\n`)
+  return console.log(`\n ${TEXT.BOLD}${TEXT.PURPLE}➜ ${filename.split('02.OOP_New-features/')[1]}${TEXT.CLOSURE}\n${TEXT.GREEN}${string}${TEXT.CLOSURE}\n`)
 }
 
 import "./01.getters"
+import "./02.setters"

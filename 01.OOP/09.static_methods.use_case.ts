@@ -1,4 +1,5 @@
 import { logger } from "."
+import { TEXT } from "../utils/colors"
 
 logger(__filename, "Static Methods #FactoryMethods - Use Cases:")
 
@@ -15,7 +16,7 @@ class Cat {
   // factory method :
   static registerStray() {
     const name = choice(this.nameList);
-    console.log("\n\x1b[3m Your cat name will be randomly picked.\n\x1b[0m")
+    console.log(`\n${TEXT.ITALIC} Your cat name will be randomly picked.\n${TEXT.CLOSURE}`)
     return new Cat(name, "unknown")
   }
 
