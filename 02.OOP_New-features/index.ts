@@ -6,3 +6,4 @@ export const logger = (filename: string, string: string) => {
 
 import "./01.getters"
 import "./02.setters"
+import "./03.bonus.Practice"
