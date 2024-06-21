@@ -7,3 +7,5 @@ export const logger = (filename: string, string: string) => {
 import "./01.getters"
 import "./02.setters"
 import "./03.bonus.Practice"
+import "./04.class_fields-public_fields"
+import "./05.class_fields-private_fields"
