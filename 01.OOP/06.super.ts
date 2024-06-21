@@ -1,4 +1,5 @@
 import { logger } from "."
+import { TEXT } from "../utils/colors"
 import { TriangleC } from "./03.constructor"
 
 logger(__filename, "The Super KeyWord :")
@@ -10,7 +11,7 @@ class ColoredTriangle extends TriangleC {
   constructor(sideA: number, SideB: number, color: string) {
     super(sideA, SideB) //super inherit from the constructor of extended class:  TriangleC 
 
-    console.log("\n  \x1b[1m-> super()\x1b[0m\n  inherit from the constructor of extended class: TriangleC\n  Needed if we need to set another property, Here: color\n")
+    console.log(`\n  ${TEXT.BOLD}-> super()${TEXT.CLOSURE}\n  inherit from the constructor of extended class: TriangleC\n  Needed if we need to set another property, Here: color\n`)
 
     this.color = color
   }

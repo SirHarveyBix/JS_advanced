@@ -1,6 +1,7 @@
 import readline from 'readline'
 import fs from 'fs'
 import { ChildProcess, spawn } from 'child_process'
+import { TEXT } from './utils/colors'
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -12,7 +13,7 @@ let nodemonProcess: ChildProcess | null = null
 let isPromptRunning = false
 let selectedFolder: string | null = null
 
-const EXCLUDE_DIRS = ['.git', 'node_modules']
+const EXCLUDE_DIRS = ['.git', 'node_modules', 'utils']
 
 // Handle signal SIGINT (Ctrl + C) just in case
 process.on('SIGINT', () => {
@@ -54,7 +55,7 @@ const promptUser = async () => {
 
       folders.forEach((folder, index) => {
         if (index === selectedIndex) {
-          console.log(`\x1b[92m ➜ ${folder}\x1b[0m`)
+          console.log(`${TEXT.GREEN} ➜ ${folder}${TEXT.CLOSURE}`)
         } else {
           console.log(`   ${folder}`)
         }
