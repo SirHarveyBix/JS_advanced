@@ -6,3 +6,5 @@ export const logger = (filename: string, string: string) => {
 
 import "./01.intro"
 import "./02.Mystery-of-this"
+import "./03.global-objects_and-this"
+import "./04.left-dot-rule"

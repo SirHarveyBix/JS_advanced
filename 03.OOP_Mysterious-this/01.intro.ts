@@ -2,7 +2,6 @@ import { logger } from "."
 
 logger(__filename, "   Introducing This")
 
-
 const person = {
   name: "Guillaume",
   city: "Nantes",
