@@ -36,7 +36,6 @@ console.log("   The value of 'firstName' is Kitty, as it is NOT supposed to be !
 
 console.log("dancingEhpad.call(kitty, 'salsa') =>", dancingEhpad.call(kitty, 'salsa'))
 
-
 const guillaume = {
   name: "Guillaume",
   city: "Nantes",
