@@ -2,7 +2,7 @@ import { TEXT } from '../utils/colors'
 import { isIntervalStopped } from './11.bind-timers'
 import { logger } from './index'
 
-let isSecondIntervalStopped = isIntervalStopped
+let isSecondIntervalStopped = false
 
 class Cat {
   firstName: string
@@ -23,6 +23,7 @@ class Cat {
     setTimeout(() => {
       console.log(`\n#3 I am ${this.firstName}`) // yay!
       console.log(`  ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`, this)
+      isSecondIntervalStopped = true
     }, 1000)
   }
 }
@@ -37,8 +38,6 @@ async function runAfterInterval() {
   logger(__filename, "   Arrow functions & 'This'")
 
   kitty.superGreet()
-  isSecondIntervalStopped = true
-
 }
 
 runAfterInterval()
