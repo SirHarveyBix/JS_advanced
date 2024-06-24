@@ -1,9 +1,9 @@
-import { TEXT } from '../utils/colors';
-import { logger } from './index';
+import { TEXT } from '../utils/colors'
+import { logger } from './index'
 
-logger(__filename, '   Bind with Timers');
+let isIntervalStopped = false
 
-
+logger(__filename, '   Bind with Timers')
 
 class Counter {
   public count = 0
@@ -20,7 +20,7 @@ class Counter {
   start() {
     const intervalId = setInterval(
       function () {
-        console.log(`  ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`, this);
+        console.log(`  ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`, this)
         console.log('count', this.count)
 
         this.count += this.incrementAmount
@@ -42,7 +42,7 @@ class Counter {
   boundStart() {
     const intervalId = setInterval(
       function () {
-        console.log(`  ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`, this);
+        console.log(`  ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`, this)
         console.log('count', this.count)
 
         this.count += this.incrementAmount
@@ -56,6 +56,8 @@ class Counter {
             console.log(' [Security]: For safety Interval has been stopped')
             console.log(`    ${TEXT.RED}➜ ${TEXT.BOLD}${TEXT.PURPLE}Do not forget !${TEXT.CLOSURE}\n'This' is the context if you executes the function : 'start()', on a browser, the value of 'This' won't be the same !`)
             console.log(`\n➜ setInterval({ ... }}${TEXT.GREEN}${TEXT.BOLD}.bind(this)${TEXT.CLOSURE}, helps to keep the context`)
+
+            isIntervalStopped = true
           })
         }
       }.bind(this), 1000)
@@ -66,5 +68,6 @@ const counter = new Counter(1, 1)
 
 counter.start()
 
-
 counter.boundStart()
+
+export { isIntervalStopped }
