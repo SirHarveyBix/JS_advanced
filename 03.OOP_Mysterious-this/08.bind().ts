@@ -15,7 +15,6 @@ const guillaume = {
   sing: function () {
     console.log(`${TEXT.YELLOW}${TEXT.BOLD}This is${TEXT.CLOSURE}`, this);
     return `${this?.name} Sing `;
-
   }
 }
 
