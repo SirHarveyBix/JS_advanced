@@ -27,10 +27,7 @@ class Dog {
   }
 
   bark() {
-    console.log(
-      `   class => ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`,
-      this
-    )
+    console.log(`   class => ${TEXT.YELLOW}${TEXT.BOLD}This is ${TEXT.CLOSURE}`, this)
     return `${this.name} barks Woofs !`
   }
 
