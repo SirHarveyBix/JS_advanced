@@ -6,3 +6,4 @@ export const logger = (filename: string, string: string) => {
 
 import "./01.intro"
 import "./02.new"
+import "./03.prototype_1"

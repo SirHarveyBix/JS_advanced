@@ -1,6 +1,3 @@
-
-// TS ignore
-
 import { logger } from "."
 import { TEXT } from "../utils/colors"
 
@@ -23,7 +20,7 @@ class Dog {
     this.breed = breed
   }
 
-  break() {
+  bark() {
     return "Woofs! "
   }
 }
