@@ -1,7 +1,7 @@
 import { logger } from "."
 import { TEXT } from "../utils/colors"
 
-logger(__filename, `${TEXT.CLOSURE}   the ${TEXT.BOLD}new${TEXT.CLOSURE} Keyword`)
+logger(__filename, `   Prototypes: Part 1`)
 
 class Dog {
   name: string
