@@ -5,3 +5,4 @@ export const logger = (filename: string, string: string) => {
 }
 
 import "./01.callbacks"
+import "./02.callbacks_hell"
