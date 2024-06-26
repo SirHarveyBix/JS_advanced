@@ -1,13 +1,13 @@
 import axios from "axios"
 import { logger } from "."
-import { TEXT } from "../utils/colors"
 import { gistURLjson } from "../utils/variables"
+import { nextPage_Promise } from "./03.promises"
 
 logger(__filename, `   Callback Hell & The Pyramid of Doom !`)
 
 async function anyResponse() {
 
-  const response = await axios.get(gistURLjson)
+  const responses = await axios.get(gistURLjson)
     .then((response1) => axios.get(gistURLjson)
       .then((response2) => axios.get(gistURLjson)
         .then((response3) => axios.get(gistURLjson)
@@ -18,10 +18,14 @@ async function anyResponse() {
         )
       )
     )
-
-  console.log(response.data)
+  return await Promise.resolve(responses)
 }
 
 anyResponse()
-
-console.log("here is what we call a 'Callback hell'")
+  .then(allResponses => {
+    console.log('All responses:', allResponses.data)
+    console.log("here is what we call a 'Callback hell'")
+  })
+  .then(() =>
+    nextPage_Promise()
+  )
