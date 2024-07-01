@@ -1,6 +1,7 @@
 import { logger } from "."
 import { TEXT } from "../utils/colors"
-import { gistURLjson, POKEMON_BASE_URL } from "../utils/variables"
+import { POKEMON_BASE_URL } from "../utils/variables"
+import { nextPage_Then_Catch } from "./04.then_catch"
 
 
 export const nextPage_Promise = () => {
@@ -22,4 +23,6 @@ export const nextPage_Promise = () => {
   console.log("fetch(url) =>", response)
 
   console.log("\n• The only way to access the resolved or rejected value is to chain a method on the end of the promise (or await it)")
+
+  nextPage_Then_Catch()
 }
