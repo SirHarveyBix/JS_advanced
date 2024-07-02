@@ -12,7 +12,7 @@ export const nextPage_AsyncAwait = async () => {
   console.log(`  • You can declare any function in JavaScript as ${TEXT.ITALIC}async${TEXT.CLOSURE}`)
   console.log(`  • ${TEXT.ITALIC}async${TEXT.CLOSURE} functions ${TEXT.ITALIC}always${TEXT.CLOSURE} return promises!`)
   console.log(`  • In ${TEXT.ITALIC}async${TEXT.CLOSURE} function, you write code that looks synchronous`)
-  console.log("    • But it doesn't block JavaScript\n")
+  console.log("    ➜ But it doesn't block JavaScript\n")
 
   console.log(`${TEXT.ITALIC}${TEXT.BOLD}await${TEXT.CLOSURE}`)
 

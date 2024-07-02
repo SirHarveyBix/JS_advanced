@@ -35,8 +35,8 @@ export const nextPage_ErrorHandling = async () => {
 
   console.log(`\n${TEXT.BOLD}Benefits of Promises Over Callbacks${TEXT.CLOSURE}\n`)
   console.log("• Easier to write good functions")
-  console.log("  • Each step doesn't have be tied directly to next step")
-  console.log(`  • With promises, ${TEXT.BOLD}.then${TEXT.CLOSURE} method can just return value for next without having to itself know what comes next`)
+  console.log("  ➜ Each step doesn't have be tied directly to next step")
+  console.log(`  ➜ With promises, ${TEXT.BOLD}.then${TEXT.CLOSURE} method can just return value for next without having to itself know what comes next`)
 
   await nextPage_AsyncAwait()
 }

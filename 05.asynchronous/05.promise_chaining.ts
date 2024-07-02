@@ -59,7 +59,7 @@ export const nextPage_PromiseChaining = async () => {
   await simpleCallback()
 
   console.log(`\n• When calling ${TEXT.ITALIC}.then${TEXT.CLOSURE} on a promise, can return ${TEXT.ITALIC}new${TEXT.CLOSURE} promise in callback!`)
-  console.log(`  • Can chain asynchronous operations together with ${TEXT.ITALIC}.then${TEXT.CLOSURE} calls`)
+  console.log(`  ➜ Can chain asynchronous operations together with ${TEXT.ITALIC}.then${TEXT.CLOSURE} calls`)
   console.log(`• Only need ${TEXT.ITALIC}one .catch${TEXT.CLOSURE} at the end - you don't have to catch every promise`)
 
   nextPage_ErrorHandling()

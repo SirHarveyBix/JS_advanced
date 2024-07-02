@@ -12,9 +12,9 @@ export const nextPage_Promise = () => {
   console.log("• Promises in JavaScript are objects")
   console.log("• They are native to the language as of ES2015")
   console.log("• A promise can be in one of three states:")
-  console.log(`   • ${TEXT.ITALIC}Pending${TEXT.CLOSURE} - It doesn't yet have a value`)
-  console.log(`   • ${TEXT.ITALIC}Resolved${TEXT.CLOSURE} - It has successfully obtained a value`)
-  console.log(`   • ${TEXT.ITALIC}Rejected${TEXT.CLOSURE} - It failed to obtain a value for some reason`)
+  console.log(`   ➜ ${TEXT.ITALIC}Pending${TEXT.CLOSURE} - It doesn't yet have a value`)
+  console.log(`   ➜ ${TEXT.ITALIC}Resolved${TEXT.CLOSURE} - It has successfully obtained a value`)
+  console.log(`   ➜ ${TEXT.ITALIC}Rejected${TEXT.CLOSURE} - It failed to obtain a value for some reason`)
   console.log()
 
   const url = `${POKEMON_BASE_URL}/1`
