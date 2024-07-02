@@ -28,7 +28,7 @@ export const nextPage_AsyncAwait = async () => {
     console.log("Hello " + response.data.name)
   }
 
-  getFirstPokemon()
+  await getFirstPokemon()
 
   nextPage_MoreAsyncAwait()
 }
