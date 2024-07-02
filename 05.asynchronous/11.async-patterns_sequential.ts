@@ -41,5 +41,5 @@ export const nextPage_AsyncPatternsSequential = async () => {
 
   waitingRequests()
     .then(async () => await get3Pokemon())
-    .then(async () => await nextPage_AsyncPatternsPromiseAll())
+    .finally(async () => await nextPage_AsyncPatternsPromiseAll())
 }
