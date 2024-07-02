@@ -30,7 +30,7 @@ export const nextPage_AsyncPatternsPromiseAllSettled = async () => {
       const onlyNames = []
       const results = await Promise.allSettled(lots0fFetchCalls)
       console.log("\nPromise.all()is done & resolve\n")
-      results.forEach((pokemon) => onlyNames.push(pokemon.status === 'fulfilled' ? pokemon.value.data.name : { [pokemon.reason.code]: "ERROR]: One of the promises has been rejected " }))
+      results.forEach((pokemon) => onlyNames.push(pokemon.status === 'fulfilled' ? pokemon.value.data.name : { [pokemon.reason.code]: "ERROR]: One of the promises has been rejected" }))
 
       console.log(onlyNames)
     } catch (error) {
