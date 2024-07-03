@@ -12,6 +12,7 @@ console.log("  y = ++x ➜ ", y, "// add 1 to x then evaluate; y and X are both 
 y = x++
 console.log("  y = ++x ➜ ", y, "// evaluate x and set y that, then add 1 to x")
 
+x = 5
 console.log("\nWorks with decrementing")
 y = --x
 console.log("  y = --x ➜ ", y)
