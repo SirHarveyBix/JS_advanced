@@ -7,3 +7,4 @@ export const logger = (filename: string, string: string) => {
 import "./01.float_imprecisions"
 import "./02.bigint"
 import "./03.isNaN"
+import "./04.post_pre-increment"
