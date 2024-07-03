@@ -1,5 +1,4 @@
 import { logger } from "."
-import { TEXT } from "../utils/colors"
 import { getUser } from "../utils/variables"
 
 logger(__filename, `   ECMAScript Features and Proposals`)

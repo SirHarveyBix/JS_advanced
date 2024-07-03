@@ -5,3 +5,9 @@ export const logger = (filename: string, string: string) => {
 }
 
 import "./01.optional-chaining"
+import "./02.nullish"
+import "./03.numeric_separators"
+import "./04.Array.prototype.at"
+import "./05.replaceAll"
+import "./06.logical_assignment"
+import "./07.Promise.any"
