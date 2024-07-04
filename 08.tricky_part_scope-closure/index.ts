@@ -5,3 +5,5 @@ export const logger = (filename: string, string: string) => {
 }
 
 import "./01.recap_var-scope"
+import "./02.scope_chain"
+import "./03.hoisting"

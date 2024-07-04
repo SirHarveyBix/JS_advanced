@@ -7,5 +7,6 @@ export const TEXT = {
   GREEN: "\x1b[32m",
   PURPLE: "\x1b[35m",
   BLUE: "\x1b[36m",
+  DARK_BLUE: "\x1b[34m",
   YELLOW: "\x1b[33m"
 }
