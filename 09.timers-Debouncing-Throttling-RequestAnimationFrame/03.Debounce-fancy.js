@@ -4,10 +4,18 @@ function queryAPI(searchTerm, color) {
 }
 
 const debouncedSearchInput = document.querySelector('#Debounced-search');
+debouncedSearchInput.addEventListener('input', (event) => {
+  debouncedQueryAPI(event.target.value, 'purple');
+});
+
 const noDebouncedSearchInput = document.querySelector('#No-Debounce-search');
+noDebouncedSearchInput.addEventListener('input', () => {
+  queryAPI();
+});
 
 function debounce(callback, delay) {
   let timeoutId;
+
   return (...args) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
@@ -19,11 +27,3 @@ function debounce(callback, delay) {
 }
 
 const debouncedQueryAPI = debounce(queryAPI, 300);
-
-debouncedSearchInput.addEventListener('input', (evt) => {
-  debouncedQueryAPI(evt.target.value, 'purple');
-});
-
-noDebouncedSearchInput.addEventListener('input', () => {
-  queryAPI();
-});
