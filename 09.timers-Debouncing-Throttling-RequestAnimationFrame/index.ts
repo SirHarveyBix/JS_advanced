@@ -7,3 +7,4 @@ export const logger = (filename: string, string: string) => {
 import "./01.setTimeout.ts"
 import "./02.setInterval"
 import "./03.debouncing"
+import "./04.Throttling"
