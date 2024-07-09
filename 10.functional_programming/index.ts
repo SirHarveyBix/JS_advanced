@@ -6,3 +6,4 @@ export const logger = (filename: string, string: string) => {
 
 import "./01.intro"
 import "./02.first-class-function"
+import "./03.pure-functions"
