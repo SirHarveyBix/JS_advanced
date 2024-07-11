@@ -5,3 +5,4 @@ export const logger = (filename: string, string: string) => {
 }
 
 import "./01.fetch_basics"
+// import "./02.error_handling"

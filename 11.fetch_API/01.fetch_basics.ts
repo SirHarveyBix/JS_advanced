@@ -2,6 +2,7 @@
 import { logger } from "."
 import { TEXT } from "../utils/colors"
 import { POKEMON_BASE_URL } from "../utils/variables"
+import { errorHandling } from "./02.error_handling"
 
 logger(__filename, "   The Basics of Fetch")
 
@@ -14,4 +15,5 @@ async function getPokemon() {
   console.log(results)
 }
 
-getPokemon() 
+getPokemon()
+  .finally(() => errorHandling())
