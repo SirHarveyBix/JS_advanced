@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
+    "resolveJsonModule": true,
     "outDir": "./dist",
     "rootDir": "."
   },
@@ -18,5 +19,9 @@
   "exclude": [
     "node_modules",
     "dist"
+  ],
+  "types": [
+    "node",
+    "jest"
   ]
 }
