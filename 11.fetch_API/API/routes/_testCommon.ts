@@ -1,5 +1,3 @@
-
-import { db } from "../db"
 import { Company } from "../models/company"
 import { Job } from "../models/job"
 import { getClient, startTestContainer, stopPostgresContainer } from "../test_config/postgres.container"

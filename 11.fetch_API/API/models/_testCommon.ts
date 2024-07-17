@@ -1,6 +1,4 @@
 // import bcrypt from "bcrypt"
-
-import { db } from "../db"
 import { BCRYPT_WORK_FACTOR } from "../config"
 import { getClient, startTestContainer, stopPostgresContainer } from "../test_config/postgres.container"
 
