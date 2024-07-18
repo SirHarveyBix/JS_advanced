@@ -1,15 +1,15 @@
+import { db } from "../db"
 import { Company } from "../models/company"
 import { Job } from "../models/job"
-import { getClient, startTestContainer, stopPostgresContainer } from "../test_config/postgres.container"
+import { startTestContainer, stopPostgresContainer } from "../test_config/postgres.container"
 
 export const testJobIds = []
 
 export async function commonBeforeAll() {
   // noinspection SqlWithoutWhere
   await startTestContainer()
-  const dbClient = getClient()
 
-  await dbClient.query("DELETE FROM companies")
+  await db.query("DELETE FROM companies")
 
   await Company.create(
     {
@@ -48,9 +48,7 @@ export async function commonBeforeEach() {
 
 
   try {
-    const dbClient = getClient()
-
-    await dbClient.query("BEGIN")
+    await db.query("BEGIN")
   } catch (error) {
     console.error("Error beginning transaction:", error)
     throw error
@@ -60,10 +58,7 @@ export async function commonBeforeEach() {
 export async function commonAfterEach() {
 
   try {
-    const dbClient = getClient()
-
-
-    await dbClient.query("ROLLBACK")
+    await db.query("ROLLBACK")
   } catch (error) {
     console.error("Error rolling back transaction:", error)
     throw error
@@ -73,9 +68,7 @@ export async function commonAfterEach() {
 export async function commonAfterAll() {
 
   try {
-    const dbClient = getClient()
-
-    await dbClient.end()
+    await db.end()
     await stopPostgresContainer()
   } catch (error) {
     console.error("Error stopping PostgreSQL client and container:", error)

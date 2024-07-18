@@ -1,11 +1,6 @@
 import request from "supertest"
-
 import { app } from "../app"
-
 import { commonBeforeAll, commonBeforeEach, commonAfterEach, commonAfterAll, testJobIds/*, u1Token, adminToken */ } from "./_testCommon"
-import { startTestContainer } from "../test_config/postgres.container"
-
-
 
 beforeAll(commonBeforeAll)
 beforeEach(commonBeforeEach)

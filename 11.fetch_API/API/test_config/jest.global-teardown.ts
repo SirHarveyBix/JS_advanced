@@ -1,9 +1,8 @@
+import { db } from "../db"
 import { stopPostgresContainer } from "./postgres.container"
 
-export const globalTeardown = async () => {
-
+module.exports = async () => {
+  await db.end()
   await stopPostgresContainer()
-  console.log("[globalTeardown]: Test container stop successfully.")
+  console.log("[globalTeardown]: Test container stopped successfully.")
 }
-
-export default globalTeardown

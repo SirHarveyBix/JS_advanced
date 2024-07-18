@@ -1,14 +1,10 @@
-/** Shared config for application can be required many places. */
-
 import 'dotenv/config'
 import "colors"
-import { getTestContainerUri } from './test_config/postgres.container'
 
 export const SECRET_KEY = process.env.SECRET_KEY || "secret-dev"
 
 export const PORT = +process.env.PORT || 3001
 
-process.env.DATABASE_URL = process.env.NODE_ENV === 'test' ? getTestContainerUri() : 'postgresql://postgres:postgres@localhost:5433/jobly'
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
 //

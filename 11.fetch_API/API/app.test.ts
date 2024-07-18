@@ -2,12 +2,12 @@
 import request from "supertest";
 
 import { app } from "./app";
-import { getClient, startTestContainer, stopPostgresContainer } from "./test_config/postgres.container";
+import { startTestContainer, stopPostgresContainer } from "./test_config/postgres.container";
+import { db } from "./db";
 
 beforeAll(async () => await startTestContainer())
 afterAll(async function () {
-  const dbClient = getClient()
-  dbClient.end();
+  db.end();
   await stopPostgresContainer()
 });
 

@@ -1,10 +1,7 @@
-"use strict"
-
-import { db } from "../db"
 import { BadRequestError, NotFoundError } from "../expressError"
 import { Company } from "./company"
 import { commonBeforeAll, commonBeforeEach, commonAfterEach, commonAfterAll, testJobIds } from "./_testCommon"
-import { getClient } from "../test_config/postgres.container"
+import { db } from "../db"
 
 beforeAll(commonBeforeAll)
 beforeEach(commonBeforeEach)
@@ -26,7 +23,7 @@ describe("create", function () {
     let company = await Company.create(newCompany)
     expect(company).toEqual(newCompany)
 
-    const result = await (await db).query(
+    const result = await db.query(
       `SELECT handle, name, description, num_employees, logo_url
            FROM companies
            WHERE handle = 'new'`)
@@ -273,7 +270,7 @@ describe("update", function () {
       ...updateData,
     })
 
-    const result = await (await db).query(
+    const result = await db.query(
       `SELECT handle, name, description, num_employees, logo_url
            FROM companies
            WHERE handle = 'c1'`)
@@ -300,7 +297,7 @@ describe("update", function () {
       ...updateDataSetNulls,
     })
 
-    const result = await (await db).query(
+    const result = await db.query(
       `SELECT handle, name, description, num_employees, logo_url
            FROM companies
            WHERE handle = 'c1'`)
@@ -337,9 +334,8 @@ describe("update", function () {
 describe("remove", function () {
   test("works", async function () {
     await Company.remove("c1")
-    const dbClient = getClient()
 
-    const response = await dbClient.query(
+    const response = await db.query(
       "SELECT handle FROM companies WHERE handle='c1'")
     expect(response.rows.length).toEqual(0)
   })

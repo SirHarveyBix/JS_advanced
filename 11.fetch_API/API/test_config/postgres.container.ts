@@ -9,17 +9,19 @@ export const startTestContainer = async (): Promise<void> => {
 
   try {
     container = await new PostgreSqlContainer().start()
-    process.env.DATABASE_URL = container.getConnectionUri()
-
-    postgresClient = new Client({ connectionString: process.env.DATABASE_URL })
-    await postgresClient.connect()
 
     const sqlSchema = fs.readFileSync('./11.fetch_API/API/jobly-schema.sql', 'utf8')
     const sqlSeed = fs.readFileSync('./11.fetch_API/API/jobly-seed.sql', 'utf8')
 
+    process.env.DATABASE_URL = container?.getConnectionUri()
+
+    postgresClient = new Client({ connectionString: process.env.DATABASE_URL })
+
+    await postgresClient.connect()
     await postgresClient.query(sqlSchema)
     await postgresClient.query(sqlSeed)
 
+    console.log("postgres client & container has been initialized ")
   } catch (error) {
     console.error("Error starting test container:", error.message)
     throw error
@@ -37,24 +39,5 @@ export const stopPostgresContainer = async (): Promise<void> => {
   } catch (error) {
     console.error("Error stopping test container:", error.message)
     throw error
-  }
-}
-
-export const getClient = (): Client => {
-  if (!postgresClient) {
-    throw new Error("Postgres client is not initialized")
-  }
-  return postgresClient
-}
-
-export const getTestContainerUri = (): string => {
-  try {
-
-    return container.getConnectionUri()
-  } catch (error) {
-    if (!container) {
-      throw new Error("PostgreSqlContainer is down")
-    }
-
   }
 }

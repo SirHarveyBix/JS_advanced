@@ -1,10 +1,6 @@
 import { startTestContainer } from './postgres.container'
 
-const globalSetup = async () => {
-
+module.exports = async () => {
   await startTestContainer()
   console.log("[globalSetup]: Test container started successfully.")
-
 }
-
-export default globalSetup

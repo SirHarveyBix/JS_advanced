@@ -1,8 +1,10 @@
-/** Database setup for jobly. */
-
 import { Client } from "pg"
 
-export const db = new Client({
+if (process.env.NODE_ENV !== 'test') {
+  process.env.DATABASE_URL = 'postgresql://postgres:postgres@localhost:5433/jobly'
+}
+
+const db = new Client({
   connectionString: process.env.DATABASE_URL,
 })
 
@@ -11,11 +13,15 @@ async function connectDb() {
   const { log, error } = require("console")
   try {
     await db.connect()
+
     log(`Connected to ${process.env.DATABASE_URL}`)
-  } catch (err) /* istanbul ignore next (ignore for coverage) */ {
+  } catch (err) {
+
     error(`Couldn't connect to ${process.env.DATABASE_URL}`, err.message)
-    // process.exit(1)
-    throw error
+    throw err
   }
 }
+
 connectDb()
+
+export { db }
