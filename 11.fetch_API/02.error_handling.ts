@@ -2,6 +2,7 @@
 import { logger } from "."
 import { TEXT } from "../utils/colors"
 import { POKEMON_BASE_URL } from "../utils/variables"
+import { headers } from "./03.headers"
 
 
 const URL = `${POKEMON_BASE_URL}/blah`
@@ -24,4 +25,5 @@ export const errorHandling = () => {
       console.error(error.message)
       console.log()
     })
+    .finally(() => headers())
 }

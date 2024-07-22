@@ -1,27 +1,32 @@
 
 import { logger } from "."
 import { TEXT } from "../utils/colors"
-import { POKEMON_BASE_URL } from "../utils/variables"
+export const headers = async () => {
+
+  logger(__filename, "   Sending Request Headers With Fetch")
+
+  async function showMeHeaders() {
 
 
-const URL = `${POKEMON_BASE_URL}/blah`
-export const errorHandling = () => {
+    const headers = new Headers({ 'content-type': "application/json" })
 
-  logger(__filename, "   Error Handling with fetch")
+    try {
+      const response = await fetch(
+        "http://localhost:3001/showmeheaders",
+        { headers }
+      )
 
+      const data = await response.json()
+      console.log("DATA", data)
+    } catch (error) {
+      console.log(`➜ ${TEXT.BOLD}${TEXT.RED}${error.message}${TEXT.CLOSURE}`)
+      console.error("   ➜ That probably mean you did not launch the API\n")
+      console.log("executes in your terminal : ")
+      console.log(`  ➜ ${TEXT.YELLOW}docker compose up${TEXT.CLOSURE}`)
+      console.log("      ensure it is installed")
+      console.log(`  ➜ ${TEXT.YELLOW}yarn start:API${TEXT.CLOSURE}`)
+    }
+  }
 
-  fetch(URL)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP Error! status : ${response.status}`)
-      }
-
-      return response.json()
-    })
-    .then(({ results }) => results)
-    .catch((error) => {
-      console.error("SOMETHING WENT WRONG WITH THE FETCH CALL !")
-      console.error(error.message)
-      console.log()
-    })
+  showMeHeaders()
 }
