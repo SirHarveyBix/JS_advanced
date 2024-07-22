@@ -1,12 +1,12 @@
 
 import { logger } from "."
 import { TEXT } from "../utils/colors"
+import { postRequest } from "./04.POST"
 export const headers = async () => {
 
   logger(__filename, "   Sending Request Headers With Fetch")
 
   async function showMeHeaders() {
-
 
     const headers = new Headers({ 'content-type': "application/json" })
 
@@ -29,4 +29,5 @@ export const headers = async () => {
   }
 
   showMeHeaders()
+    .finally(() => postRequest())
 }
