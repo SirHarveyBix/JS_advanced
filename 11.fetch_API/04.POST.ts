@@ -1,6 +1,6 @@
 
 import { logger } from "."
-import { TEXT } from "../utils/colors"
+import { upload } from "./05.uploads"
 
 export const postRequest = async () => {
   logger(__filename, "   POST Request With Fetch")
@@ -36,5 +36,6 @@ export const postRequest = async () => {
   }
 
   getCompany()
+    .finally(() => upload())
 
 }
