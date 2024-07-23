@@ -5,3 +5,4 @@ export const logger = (filename: string, string: string) => {
 }
 
 import "./01.local-storage"
+import "./02.darkmode_toggle"
