@@ -29,7 +29,9 @@ toggleButton.addEventListener('click', toggleTheme);
 
 applySavedTheme();
 
+// watching out storage events
 window.addEventListener('storage', (event) => {
+  // sync all open tab of the same website to the same 'theme'
   if (event.key === 'theme') {
     applySavedTheme();
   }
