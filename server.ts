@@ -13,7 +13,7 @@ let nodemonProcess: ChildProcess | null = null
 let isPromptRunning = false
 let selectedFolder: string | null = null
 
-const EXCLUDE_DIRS = ['.git', 'node_modules', 'utils']
+const EXCLUDE_DIRS = ['.git', '.vscode', 'node_modules', 'utils']
 
 // Handle signal SIGINT (Ctrl + C) just in case
 process.on('SIGINT', () => {
