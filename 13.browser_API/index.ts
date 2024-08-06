@@ -5,3 +5,6 @@ export const logger = (filename: string, string: string) => {
 }
 
 import "./01.geolocation_API"
+import "./02.getUserMedia_API"
+import "./03.intersectionObservers"
+import "./04.lazy_intersectionObservers"
