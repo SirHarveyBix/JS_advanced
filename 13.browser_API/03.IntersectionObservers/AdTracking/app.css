@@ -1,0 +1,19 @@
+.ad {
+  position: relative;
+  top: 1500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  background-color: goldenrod;
+}
+
+#blue {
+  top: 2000px;
+  background-color: blue;
+}
+body {
+  height: 4000px;
+}

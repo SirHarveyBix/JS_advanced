@@ -1,0 +1,5 @@
+img.lazy {
+    display: block;
+    min-height: 400px;
+    background: url("placeholder.png") no-repeat center center;
+}
